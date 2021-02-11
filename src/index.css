@@ -7,7 +7,6 @@ body, html {
   padding: 0;
   height: 100%;
   width: 100%;
-
 }
 
 body {
@@ -16,6 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
 }
 
 code {

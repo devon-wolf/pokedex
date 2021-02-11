@@ -6,9 +6,9 @@ export default class Header extends Component {
 	render() {
 		return (
 			<header className={style.header}>
-				<h1>
+				<h2>
 					Your Trusty Pokedex
-				</h1>
+				</h2>
 				<nav>
 					<NavLink exact activeClassName={style.current} className={style.navItem} to="/">Home</NavLink>
 					<NavLink exact activeClassName={style.current} className={style.navItem} to="/search">Search</NavLink>

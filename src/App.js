@@ -10,7 +10,7 @@ import Header from './components/Common/Header.js';
 
 function App() {
   return (
-    <div>
+    <div className=".App">
       <Router>
         <Header />
         <Switch>
@@ -26,7 +26,6 @@ function App() {
           />
         </Switch>
       </Router>
-
     </div>
   );
 }
