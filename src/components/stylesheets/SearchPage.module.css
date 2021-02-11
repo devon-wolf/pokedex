@@ -1,4 +1,4 @@
 .searchPage {
 	display: grid;
-	grid-template-columns: 15% 85%;
+	grid-template-columns: min-content 1fr;
 }
