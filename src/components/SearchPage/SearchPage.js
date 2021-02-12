@@ -17,7 +17,7 @@ export default class SearchPage extends Component {
 	}
 	
 	sortAndUpdate = (callback) => {
-		const sortedList = callback(pokeData, 'pokemon');
+		const sortedList = callback(this.state.pokemon, 'pokemon');
 		this.setState({ pokemon: sortedList });
 	}
 
