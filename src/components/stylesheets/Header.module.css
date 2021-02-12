@@ -1,3 +1,32 @@
+.header {
+	background-color: orchid;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+}
+
+.header h2 {
+	margin: 0;
+}
+
+.navItem {
+	padding: 1rem;
+}
+
+.navItem:link, .navItem:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.navItem:hover {
+	color: darkslategray;
+}
+
+.navItem:active {
+	color:deeppink;
+}
+
 .current {
 	display: none;
 }

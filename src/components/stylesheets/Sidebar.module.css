@@ -1,0 +1,10 @@
+.aside {
+	background-color: dodgerblue;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.aside button {
+	margin: .5rem;
+}
