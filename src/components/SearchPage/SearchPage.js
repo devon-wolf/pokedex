@@ -16,14 +16,23 @@ export default class SearchPage extends Component {
 		sortCriteria: ''
 	}
 	
+	sortAndUpdate = (callback) => {
+		const sortedList = callback(pokeData, 'pokemon');
+		this.setState({ pokemon: sortedList });
+	}
+
 	render() {
 		return (
 			<div className={style.searchPage}>
-				<Sidebar searchFunction={(e) => console.log('search click')} sortFunction={(e) => sortObjectsAscending(pokeData, 'pokemon')}/>
+				<Sidebar 
+				searchFunction={(e) => console.log('search click')} 
+				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
+				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 
 				<main className={style.main}>
 
-					<PokeList pokeData={pokeData}/>
+					<PokeList 
+					pokeData={this.sortedList || pokeData}/>
 
 				</main>
 

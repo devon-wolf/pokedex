@@ -4,7 +4,6 @@ export function sortObjectsAscending(objectArray, property) {
 		else if (a[property] > b[property]) return 1;
 		else return 0;
 	});
-	console.log(objectArray);
 	return objectArray;
 }
 
