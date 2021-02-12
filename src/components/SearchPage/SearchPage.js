@@ -23,6 +23,17 @@ export default class SearchPage extends Component {
 
 	handleSearchQuery = (e) => {
 		this.setState({ searchQuery: e.target.value});
+		if (this.sortedList) {
+			this.sortedList.filter(item => {
+				return item['pokemon'].includes(this.searchQuery) || item['type_1'].includes(this.searchQuery);
+			})
+		}
+		else {
+			pokeData.filter(item => {
+				console.log(item);
+				return item['pokemon'].includes(this.searchQuery) || item['type_1'].includes(this.searchQuery);
+			})
+		}	
 	}
 
 	render() {
