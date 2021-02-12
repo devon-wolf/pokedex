@@ -25,7 +25,7 @@ export default class SearchPage extends Component {
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
-				searchFunction={(e) => console.log('search click')} 
+				searchFunction={(e) => console.log('input change')}
 				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
 				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 

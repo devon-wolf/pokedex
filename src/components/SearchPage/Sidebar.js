@@ -9,18 +9,18 @@ export default class Sidebar extends Component {
 		return (
 			<aside className={style.aside}>
 
-				<SearchBar />
-
-				<Button handleClick={this.props.searchFunction}
-				buttonText="Search" />
+				<SearchBar handleInput={this.props.searchFunction} />
+				
+				{/* <Button handleClick={this.props.searchFunction}
+				buttonText="Search" /> */}
+				
+				<Dropdown />
 
 				<Button handleClick={this.props.sortUpFunction}
 				buttonText="Sort Ascending" />
 
 				<Button handleClick={this.props.sortDownFunction} buttonText="Sort Descending" />
 				
-				<Dropdown />
-
 			</aside>
 		)
 	}

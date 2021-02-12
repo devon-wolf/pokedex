@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class SearchBar extends Component {
 	render() {
 		return (
-			<input placeholder="Search pokedex"></input>
+			<input onChange={this.props.handleInput}placeholder="Search pokedex"></input>
 		)
 	}
 }
