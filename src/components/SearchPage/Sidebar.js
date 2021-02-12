@@ -11,12 +11,10 @@ export default class Sidebar extends Component {
 
 				<SearchBar />
 
-				<Button handleClick={(e) => 
-				console.log('someone clicked search')}
+				<Button handleClick={this.props.searchFunction}
 				buttonText="Search" />
 
-				<Button handleClick={(e) => 
-				console.log('someone clicked sort')}
+				<Button handleClick={this.props.sortFunction}
 				buttonText="Sort" />
 				
 				<Dropdown />
