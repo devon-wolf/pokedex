@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import style from '../stylesheets/PokeItem.css'
+import style from '../stylesheets/PokeItem.module.css'
 
 export default class PokeItem extends Component {
 	render() {
 		return (
-			<div className={style.pokeEntry}>
+			<li className={style.pokeEntry}>
 
 				<h3>
 					{this.props.pokeName}
@@ -16,7 +16,7 @@ export default class PokeItem extends Component {
 					{this.props.pokeStat}
 				</p>
 
-			</div>
+			</li>
 		)
 	}
 }
