@@ -4,7 +4,7 @@ import DropdownItem from './DropdownItem.js'
 export default class Dropdown extends Component {
 	render() {
 		return (
-			<select>
+			<select onChange={this.props.handleDropdown}>
 				<option>--</option>
 				<DropdownItem text="Name" value="pokemon" />
 				<DropdownItem text="Type" value="type_1"/>

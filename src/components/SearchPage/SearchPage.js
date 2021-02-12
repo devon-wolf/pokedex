@@ -16,12 +16,16 @@ export default class SearchPage extends Component {
 	}
 	
 	sortAndUpdate = (callback) => {
-		const sortedList = callback(this.state.pokemon, 'pokemon');
+		const sortedList = callback(this.state.pokemon, this.state.sortCriteria);
 		this.setState({ pokemon: sortedList });
 	}
 
 	handleSearchQuery = (e) => {
-		this.setState({ searchQuery: e.target.value});
+		this.setState({ searchQuery: e.target.value });
+	}
+
+	handleDropdownChange = (e) => {
+		this.setState({ sortCriteria: e.target.value });
 	}
 
 	render() {
@@ -29,9 +33,12 @@ export default class SearchPage extends Component {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
 
+		console.log(this.state.sortCriteria);
+
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
+				handleDropdown={this.handleDropdownChange}
 				searchFunction={this.handleSearchQuery}
 				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
 				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
