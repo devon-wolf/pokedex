@@ -1,9 +1,11 @@
 .header {
-	background-color: orchid;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 1rem;
+	width: 100%;
+	border: solid 4px salmon;
+	grid-row: 1;
 }
 
 .header h2 {

@@ -1,6 +1,8 @@
 .searchPage {
 	display: grid;
 	grid-template-columns: min-content 1fr;
+	width: 100%;
+	
 }
 
 .main {

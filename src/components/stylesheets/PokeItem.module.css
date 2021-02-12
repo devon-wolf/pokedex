@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	border: solid 4px violet;
-	
+	box-shadow: #350918 .4rem .4rem;
 }
 
 .pokeEntry h3 {
@@ -13,8 +13,7 @@
 }
 
 .pokeEntry img {
-	height: 150px;
-	width: 150px;
+	width: 100%;
 }
 
 

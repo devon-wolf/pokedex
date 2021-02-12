@@ -2,11 +2,13 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  background-color: cornflowerblue;
+  border: solid 5px navy;
 }
 
 body {
@@ -15,8 +17,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
+
+  background-color:rebeccapurple;
+  border: solid 4px chartreuse;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 code {
