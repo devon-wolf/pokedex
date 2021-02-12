@@ -24,7 +24,7 @@ export default class SearchPage extends Component {
 	handleSearchQuery = (e) => {
 		this.setState({ searchQuery: e.target.value});
 		
-		const filteredList = this.state.pokemon.filter(item => {
+		const filteredList = pokeData.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
 		
