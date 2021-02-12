@@ -12,8 +12,8 @@ export default class SearchPage extends Component {
 	state = {
 		pokemon: pokeData,
 		searchQuery: '',
-		sortDirection: '',
-		sortCriteria: ''
+		// sortDirection: '',
+		// sortCriteria: ''
 	}
 	
 	sortAndUpdate = (callback) => {
@@ -23,17 +23,13 @@ export default class SearchPage extends Component {
 
 	handleSearchQuery = (e) => {
 		this.setState({ searchQuery: e.target.value});
-		
-		const filteredList = pokeData.filter(item => {
-			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
-		});
-		
-		this.setState({ pokemon: filteredList });
 	}
 
 	render() {
-		console.log(this.state.searchQuery);
-		console.log(this.state.pokemon);
+		const filteredList = this.state.pokemon.filter(item => {
+			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
+		});
+
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
@@ -42,12 +38,9 @@ export default class SearchPage extends Component {
 				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 
 				<main className={style.main}>
-
 					<PokeList 
-					pokeData={this.state.pokemon}/>
-
+					pokeData={filteredList}/>
 				</main>
-
 			</div>
 		)
 	}

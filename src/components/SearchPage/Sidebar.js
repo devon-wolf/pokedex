@@ -11,9 +11,6 @@ export default class Sidebar extends Component {
 
 				<SearchBar handleInput={this.props.searchFunction} />
 				
-				{/* <Button handleClick={this.props.searchFunction}
-				buttonText="Search" /> */}
-				
 				<Dropdown />
 
 				<Button handleClick={this.props.sortUpFunction}
