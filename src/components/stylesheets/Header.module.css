@@ -3,7 +3,8 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 1rem;
-	
+	color: white;
+	background-color: crimson;
 	border: solid 4px salmon;
 	grid-row: 1;
 }

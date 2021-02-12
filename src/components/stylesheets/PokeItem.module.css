@@ -1,10 +1,10 @@
 .pokeEntry {
-	background: palevioletred;
+	background: skyblue;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	border: solid 4px violet;
+	border: solid 4px teal;
 	box-shadow: #350918 .4rem .4rem;
 }
 

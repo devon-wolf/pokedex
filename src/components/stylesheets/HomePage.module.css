@@ -11,3 +11,21 @@
 .main h1 {
 	margin: 0;
 }
+
+.link:link, .link:visited {
+	color: inherit;
+	text-decoration: none;
+	border: solid 6px gold;
+	padding: 1.5rem;
+	border-radius: 30%;
+}
+
+.link:hover {
+	background-color: greenyellow;
+	color:indigo;
+}
+
+.link:active {
+	color: crimson;
+	border: solid 6px red;
+}
