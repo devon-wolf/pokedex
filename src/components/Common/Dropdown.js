@@ -6,21 +6,12 @@ export default class Dropdown extends Component {
 		return (
 			<select>
 				<option>--</option>
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
-				<DropdownItem />
+				<DropdownItem text="Name" value="pokemon" />
+				<DropdownItem text="Type" value="type_1"/>
+				<DropdownItem text="Weight" value="weight"/>
+				<DropdownItem text="HP" value="hp" />
+				<DropdownItem text="Attack" value="attack" />
+				<DropdownItem text="Defense" value="defense" />
 			</select>
 		)
 	}

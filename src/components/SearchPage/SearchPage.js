@@ -12,8 +12,7 @@ export default class SearchPage extends Component {
 	state = {
 		pokemon: pokeData,
 		searchQuery: '',
-		// sortDirection: '',
-		// sortCriteria: ''
+		sortCriteria: ''
 	}
 	
 	sortAndUpdate = (callback) => {
