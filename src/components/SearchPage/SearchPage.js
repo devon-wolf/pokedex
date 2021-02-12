@@ -11,7 +11,7 @@ import {
 export default class SearchPage extends Component {
 	state = {
 		pokemon: [],
-		searchCriteria: '',
+		searchQuery: '',
 		sortDirection: '',
 		sortCriteria: ''
 	}
@@ -21,11 +21,16 @@ export default class SearchPage extends Component {
 		this.setState({ pokemon: sortedList });
 	}
 
+	handleSearchQuery = (e) => {
+		this.setState({ searchQuery: e.target.value});
+	}
+
 	render() {
+		console.log(this.state.searchQuery);
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
-				searchFunction={(e) => console.log('input change')}
+				searchFunction={this.handleSearchQuery}
 				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
 				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 
