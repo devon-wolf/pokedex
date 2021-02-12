@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PokeItem from './PokeItem.js'
+import style from '../stylesheets/PokeList.module.css'
 
 export default class PokeList extends Component {
 	render() {
 		return (
-			<ul>
+			<ul className={style.list}>
 				{this.props.pokeData.map(pokeObject =>
 					<PokeItem 
 					pokeName={pokeObject.pokemon}

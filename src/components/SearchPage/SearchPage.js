@@ -16,10 +16,13 @@ export default class SearchPage extends Component {
 		return (
 			<div className={style.searchPage}>
 				<Sidebar />
+
 				<main className={style.main}>
-					<h1>WHO'S THAT POKEMON?</h1>
+
 					<PokeList pokeData={pokeData}/>
+					
 				</main>
+
 			</div>
 		)
 	}
