@@ -32,9 +32,7 @@ export default class SearchPage extends Component {
 		const filteredList = this.state.pokemon.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
-
-		console.log(this.state.sortCriteria);
-
+		
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
