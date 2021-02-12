@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 1rem;
-	width: 100%;
+	
 	border: solid 4px salmon;
 	grid-row: 1;
 }
