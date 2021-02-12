@@ -10,7 +10,7 @@ import {
 
 export default class SearchPage extends Component {
 	state = {
-		pokemon: [],
+		pokemon: pokeData,
 		searchQuery: '',
 		sortDirection: '',
 		sortCriteria: ''
@@ -23,21 +23,17 @@ export default class SearchPage extends Component {
 
 	handleSearchQuery = (e) => {
 		this.setState({ searchQuery: e.target.value});
-		if (this.sortedList) {
-			this.sortedList.filter(item => {
-				return item['pokemon'].includes(this.searchQuery) || item['type_1'].includes(this.searchQuery);
-			})
-		}
-		else {
-			pokeData.filter(item => {
-				console.log(item);
-				return item['pokemon'].includes(this.searchQuery) || item['type_1'].includes(this.searchQuery);
-			})
-		}	
+		
+		const filteredList = this.state.pokemon.filter(item => {
+			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
+		});
+		
+		this.setState({ pokemon: filteredList });
 	}
 
 	render() {
 		console.log(this.state.searchQuery);
+		console.log(this.state.pokemon);
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
@@ -48,7 +44,7 @@ export default class SearchPage extends Component {
 				<main className={style.main}>
 
 					<PokeList 
-					pokeData={this.sortedList || pokeData}/>
+					pokeData={this.state.pokemon}/>
 
 				</main>
 
