@@ -13,11 +13,12 @@ export default class SearchPage extends Component {
 		pokemon: pokeData,
 		searchQuery: '',
 		category: '',
-		sortCriteria: ''
+		sortCriteria: 'pokemon'
 	}
 	
 	sortAndUpdate = (callback) => {
 		const sortedList = callback(this.state.pokemon, this.state.sortCriteria);
+
 		this.setState({ pokemon: sortedList });
 	}
 
@@ -34,12 +35,15 @@ export default class SearchPage extends Component {
 	}
 
 	render() {
-		const filteredList = this.state.pokemon.filter(item => {
+		const radioFilter = this.state.pokemon.filter(item => {
+			if (!this.state.category || this.state.category === 'all') return true;
+			return item['type_1'] === this.state.category;
+		});
+
+		const filteredList = radioFilter.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
 
-		console.log(this.state.category);
-		
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 

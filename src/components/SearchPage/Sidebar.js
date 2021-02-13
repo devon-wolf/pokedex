@@ -19,8 +19,12 @@ export default class Sidebar extends Component {
 					<RadioButton handleRadio={this.props.handleRadio} name="category" value="grass" label="Grass" />
 					<RadioButton handleRadio={this.props.handleRadio} name="category" value="normal" label="Normal" />
 					<RadioButton handleRadio={this.props.handleRadio} name="category" value="water" label="Water" />
+					<RadioButton handleRadio={this.props.handleRadio} name="category" value="all" label="All" />
+
 				</div>
+				
 				<hr />
+				
 				<Dropdown label="Sort by:" handleDropdown={this.props.handleDropdown}/>
 
 				<Button handleClick={this.props.sortUpFunction}
