@@ -1,8 +1,9 @@
 .aside {
-	padding: 1rem;
+	padding: .5rem;
 	display: flex;
 	flex-direction: column;
-	border: solid 4px yellow;
+	border: solid 4px mediumseagreen;
+	background-image: linear-gradient(white palevioletred crimson);
 }
 
 .aside input {
@@ -15,9 +16,29 @@
 .aside label {
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
 
+.radioHeader {
+	margin: .5rem;
+	font-style: italic;
+}
+
+.radioSet {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: .5rem;
+}
+
+.radioSet label {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.aside hr {
+	width: 80%;
+	background-color: mediumseagreen;
+}
 .aside select {
 	font-family: monospace;
 }
