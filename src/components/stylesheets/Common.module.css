@@ -1,7 +1,9 @@
+/* not currently used, probably delete */
 .main {
 	padding: 1rem;
 	background-color: palegoldenrod;
-	height: 100vh;
+	height: 100%;
+	min-height: 100vh;
 }
 
 .main h1 {

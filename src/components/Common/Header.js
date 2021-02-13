@@ -10,8 +10,8 @@ export default class Header extends Component {
 					Your Trusty Pokedex
 				</h2>
 				<nav>
-					<NavLink exact activeClassName={style.current} className={style.navItem} to="/">Home</NavLink>
-					<NavLink exact activeClassName={style.current} className={style.navItem} to="/search">Search</NavLink>
+					<NavLink exact activeClassName={style.current} className={style.navItem} to="/">To Home</NavLink>
+					<NavLink exact activeClassName={style.current} className={style.navItem} to="/search">To Search</NavLink>
 				</nav>
 			</header>
 		)

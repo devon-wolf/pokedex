@@ -1,4 +1,3 @@
-import './App.css';
 import {
   BrowserRouter as Router, 
   Route, 
@@ -10,7 +9,6 @@ import Header from './components/Common/Header.js';
 
 function App() {
   return (
-    <div className=".App">
       <Router>
         <Header />
         <Switch>
@@ -26,7 +24,6 @@ function App() {
           />
         </Switch>
       </Router>
-    </div>
   );
 }
 

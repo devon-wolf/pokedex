@@ -1,10 +1,68 @@
 .aside {
-	background-color: dodgerblue;
-	padding: 1rem;
+	padding: .5rem;
 	display: flex;
 	flex-direction: column;
+	border: solid 4px mediumseagreen;
+	background-image: linear-gradient(white palevioletred crimson);
+}
+
+.aside input {
+	border: solid 6px indigo;
+	border-radius: 30%;
+	font-family: monospace;
+	padding: .5rem;
+}
+
+.aside label {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.radioHeader {
+	margin: .5rem;
+	font-style: italic;
+}
+
+.radioSet {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: .5rem;
+}
+
+.radioSet label {
+	display: flex;
+	justify-content: flex-start;
+	font-family: monospace;
+	font-weight: bold;
+}
+
+.aside hr {
+	width: 80%;
+	background-color: mediumseagreen;
+}
+.aside select {
+	font-family: monospace;
 }
 
 .aside button {
 	margin: .5rem;
+	font-family: monospace;
+	border: solid 6px gold;
+	border-radius: 30%;
+}
+
+.aside button:hover {
+	background-color: greenyellow;
+	color:indigo;
+}
+
+.aside button:active {
+	color: crimson;
+	border: solid 6px red;
+	outline: none;
+}
+
+.aside button:focus, .aside input:focus {
+	outline: none;
 }

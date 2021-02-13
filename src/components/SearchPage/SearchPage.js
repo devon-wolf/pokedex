@@ -10,32 +10,53 @@ import {
 
 export default class SearchPage extends Component {
 	state = {
-		pokemon: [],
-		searchCriteria: '',
-		sortDirection: '',
-		sortCriteria: ''
+		pokemon: pokeData,
+		searchQuery: '',
+		category: '',
+		sortCriteria: 'pokemon'
 	}
 	
 	sortAndUpdate = (callback) => {
-		const sortedList = callback(pokeData, 'pokemon');
+		const sortedList = callback(this.state.pokemon, this.state.sortCriteria);
+
 		this.setState({ pokemon: sortedList });
 	}
 
+	handleSearchQuery = (e) => {
+		this.setState({ searchQuery: e.target.value });
+	}
+
+	handleDropdownChange = (e) => {
+		this.setState({ sortCriteria: e.target.value });
+	}
+
+	handleRadioChange = (e) => {
+		this.setState({ category: e.target.value });
+	}
+
 	render() {
+		const radioFilter = this.state.pokemon.filter(item => {
+			if (!this.state.category || this.state.category === 'all') return true;
+			return item['type_1'] === this.state.category;
+		});
+
+		const filteredList = radioFilter.filter(item => {
+			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
+		});
+
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
-				searchFunction={(e) => console.log('search click')} 
+				handleRadio={this.handleRadioChange}
+				handleDropdown={this.handleDropdownChange}
+				searchFunction={this.handleSearchQuery}
 				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
 				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 
 				<main className={style.main}>
-
 					<PokeList 
-					pokeData={this.sortedList || pokeData}/>
-
+					pokeData={filteredList}/>
 				</main>
-
 			</div>
 		)
 	}

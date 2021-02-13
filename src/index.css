@@ -2,11 +2,13 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
+  border: solid 5px navy;
 }
 
 body {
@@ -15,11 +17,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
+  border: solid 4px chartreuse;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  border: 4px solid magenta;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  height: auto;
+  min-height: 100vh;
 }
