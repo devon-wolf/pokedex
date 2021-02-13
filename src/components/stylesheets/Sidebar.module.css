@@ -33,6 +33,8 @@
 .radioSet label {
 	display: flex;
 	justify-content: flex-start;
+	font-family: monospace;
+	font-weight: bold;
 }
 
 .aside hr {

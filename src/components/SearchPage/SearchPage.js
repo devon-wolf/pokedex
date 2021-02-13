@@ -12,6 +12,7 @@ export default class SearchPage extends Component {
 	state = {
 		pokemon: pokeData,
 		searchQuery: '',
+		category: '',
 		sortCriteria: ''
 	}
 	
@@ -28,14 +29,21 @@ export default class SearchPage extends Component {
 		this.setState({ sortCriteria: e.target.value });
 	}
 
+	handleRadioChange = (e) => {
+		this.setState({ category: e.target.value });
+	}
+
 	render() {
 		const filteredList = this.state.pokemon.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
+
+		console.log(this.state.category);
 		
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
+				handleRadio={this.handleRadioChange}
 				handleDropdown={this.handleDropdownChange}
 				searchFunction={this.handleSearchQuery}
 				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 

@@ -4,7 +4,7 @@ export default class RadioButton extends Component {
 	render() {
 		return (
 			<label>
-				<input type="radio" name={this.props.name} value={this.props.value} />
+				<input type="radio" onChange={this.props.handleRadio} name={this.props.name} value={this.props.value} />
 				{this.props.label}
 			</label>
 		)
