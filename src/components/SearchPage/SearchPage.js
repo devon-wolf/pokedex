@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import pokeData from '../../data/poke-data.js'
 import style from '../stylesheets/SearchPage.module.css'
 import Sidebar from './Sidebar.js'
 import PokeList from './PokeList.js'
@@ -7,17 +6,38 @@ import {
 	sortObjectsAscending,
 	sortObjectsDescending
 } from '../utils/sort-utils.js'
+import request from 'superagent'
 
 export default class SearchPage extends Component {
 	state = {
-		pokemon: pokeData,
+		loading: false,
+		pokemon: [],
 		searchQuery: '',
 		category: '',
 		sortCriteria: 'pokemon'
 	}
 	
-	sortAndUpdate = (callback) => {
-		const sortedList = callback(this.state.pokemon, this.state.sortCriteria);
+	componentDidMount = async() => {
+		await this.loadPokemon();
+	}
+
+	loadPokemon = async () => {
+		this.setState({ 
+			loading: true, 
+			pokemon: [] 
+		});
+
+		const pokeData = await request.get('https://pokedex-alchemy.herokuapp.com/api/pokedex');
+
+		this.setState({ 
+			loading: false, 
+			pokemon: pokeData.body.results 
+		});
+	}
+
+	sortAndUpdate = async(sortFunction) => {
+		// await this.loadPokemon();
+		const sortedList = sortFunction(this.state.pokemon, this.state.sortCriteria);
 
 		this.setState({ pokemon: sortedList });
 	}
@@ -35,12 +55,14 @@ export default class SearchPage extends Component {
 	}
 
 	render() {
-		const radioFilter = this.state.pokemon.filter(item => {
+		const radioFilter = 
+			this.state.pokemon.filter(item => {
 			if (!this.state.category || this.state.category === 'all') return true;
 			return item['type_1'] === this.state.category;
 		});
 
-		const filteredList = radioFilter.filter(item => {
+		const filteredList =
+			radioFilter.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
 
@@ -55,7 +77,7 @@ export default class SearchPage extends Component {
 
 				<main className={style.main}>
 					<PokeList 
-					pokeData={filteredList}/>
+					data={filteredList}/>
 				</main>
 			</div>
 		)
