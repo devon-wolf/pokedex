@@ -3,7 +3,6 @@ import style from '../stylesheets/Sidebar.module.css'
 import Dropdown from '../Common/Dropdown.js'
 import Button from '../Common/Button.js'
 import SearchBar from './SearchBar.js'
-// import RadioButton from '../Common/RadioButton.js'
 import RadioButtonGroup from './RadioButtonGroup.js'
 
 export default class Sidebar extends Component {

@@ -20,7 +20,6 @@ export default class SearchPage extends Component {
 	
 	componentDidMount = async() => {
 		await this.loadPokemon();
-		await this.loadTypes();
 	}
 
 	loadPokemon = async () => {
@@ -31,30 +30,23 @@ export default class SearchPage extends Component {
 
 		const pokeData = await request.get('https://pokedex-alchemy.herokuapp.com/api/pokedex');
 
+		const filteredTypes = () => {
+			const pokeArray = pokeData.body.results;
+			let typeArray = [];
+			for (let i of pokeArray) {
+				if (!typeArray.some(n => n === i.type_1)) typeArray.push(i.type_1)
+			}
+			return typeArray;
+		}
+
 		this.setState({ 
 			loading: false, 
-			pokemon: pokeData.body.results 
+			pokemon: pokeData.body.results,
+			types: filteredTypes()
 		});
 	}
 
-	loadTypes = async () => {
-		const typeData = await request.get('https://pokedex-alchemy.herokuapp.com/api/pokedex/types');
-
-		const types = typeData.body.map(object => object.type)
-		console.log(types);
-		this.setState({ types: types });
-	}
-
-	// getRadioOptions = async(key) => {
-	// 	await this.loadTypes()
-	// 	let radioOptions = [];
-	// 	for (let obj in this.state.types) {
-	// 		radioOptions.push(obj[key]);
-	// 	}
-	// 	return radioOptions;
-	// }
-
-	sortAndUpdate = async(sortFunction) => {
+	sortAndUpdate = (sortFunction) => {
 		const sortedList = sortFunction(this.state.pokemon, this.state.sortCriteria);
 
 		this.setState({ pokemon: sortedList });
@@ -72,25 +64,20 @@ export default class SearchPage extends Component {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
 
-		// const radioTypeOptions = this.getRadioOptions('type');
-		// console.log(radioTypeOptions);
-
 		return (
 			<div className={style.searchPage}>
 				<Sidebar
-				radioOptions={this.state.types}
-				radio={this.state.radio}
+					radioOptions={this.state.types}
+					radio={this.state.radio}
+					handleRadio={(e) => this.setState({ radio: e.target.value })}
 
-				handleRadio={(e) =>
-					this.setState({ radio: e.target.value })}
+					handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
 
-				handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
+					handleSearch={(e) => this.setState({ searchQuery: e.target.value })}
 
-				handleSearch={(e) => this.setState({ searchQuery: e.target.value })}
+					sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)}
 
-				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)}
-
-				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
+					sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 				
 				<main className={style.main}>
 					<PokeList 
