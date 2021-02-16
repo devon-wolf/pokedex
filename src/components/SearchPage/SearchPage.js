@@ -7,6 +7,7 @@ import {
 	sortObjectsDescending
 } from '../utils/sort-utils.js'
 import request from 'superagent'
+import Spinner from '../Common/Spinner.js'
 
 export default class SearchPage extends Component {
 	state = {
@@ -80,6 +81,7 @@ export default class SearchPage extends Component {
 					sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
 				
 				<main className={style.main}>
+					{this.state.loading && <Spinner />}
 					<PokeList 
 					data={filteredList}/>
 				</main>
