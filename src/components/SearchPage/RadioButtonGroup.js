@@ -20,6 +20,7 @@ export default class RadioButtonGroup extends Component {
 						value={option}
 						label={capitalize(option)}
 						key={option}
+						radio={this.props.radio}
 						/>
 					}
 				)}

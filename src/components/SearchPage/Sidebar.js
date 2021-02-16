@@ -13,7 +13,8 @@ export default class Sidebar extends Component {
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder='Search pokedex' />
 
-				<RadioButtonGroup handleRadio={this.props.handleRadio}/>
+				<RadioButtonGroup handleRadio={this.props.handleRadio}
+				radio={this.props.radio}/>
 				
 				<hr />
 				

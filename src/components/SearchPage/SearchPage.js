@@ -58,6 +58,8 @@ export default class SearchPage extends Component {
 				<Sidebar 
 				handleRadio={(e) =>
 					this.setState({ type: e.target.value })}
+				
+				radio={this.state.type}
 
 				handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
 
