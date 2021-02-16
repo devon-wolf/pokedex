@@ -36,22 +36,9 @@ export default class SearchPage extends Component {
 	}
 
 	sortAndUpdate = async(sortFunction) => {
-		// await this.loadPokemon();
 		const sortedList = sortFunction(this.state.pokemon, this.state.sortCriteria);
 
 		this.setState({ pokemon: sortedList });
-	}
-
-	handleSearchQuery = (e) => {
-		this.setState({ searchQuery: e.target.value });
-	}
-
-	handleDropdownChange = (e) => {
-		this.setState({ sortCriteria: e.target.value });
-	}
-
-	handleRadioChange = (e) => {
-		this.setState({ category: e.target.value });
 	}
 
 	render() {
@@ -69,12 +56,16 @@ export default class SearchPage extends Component {
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
-				handleRadio={this.handleRadioChange}
-				handleDropdown={this.handleDropdownChange}
-				searchFunction={this.handleSearchQuery}
-				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)} 
-				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
+				handleRadio={(e) => this.setState({ category: e.target.value })}
 
+				handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
+
+				handleSearch={(e) => this.setState({ searchQuery: e.target.value })}
+
+				sortUpFunction={(e) => this.sortAndUpdate(sortObjectsAscending)}
+
+				sortDownFunction={(e) => this.sortAndUpdate(sortObjectsDescending)} />
+				
 				<main className={style.main}>
 					<PokeList 
 					data={filteredList}/>
