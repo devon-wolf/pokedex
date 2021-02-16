@@ -13,7 +13,7 @@ export default class SearchPage extends Component {
 		loading: false,
 		pokemon: [],
 		searchQuery: '',
-		category: '',
+		type: '',
 		sortCriteria: 'pokemon'
 	}
 	
@@ -44,8 +44,8 @@ export default class SearchPage extends Component {
 	render() {
 		const radioFilter = 
 			this.state.pokemon.filter(item => {
-			if (!this.state.category || this.state.category === 'all') return true;
-			return item['type_1'] === this.state.category;
+			if (!this.state.type || this.state.type === 'all') return true;
+			return item['type_1'] === this.state.type;
 		});
 
 		const filteredList =
@@ -56,7 +56,8 @@ export default class SearchPage extends Component {
 		return (
 			<div className={style.searchPage}>
 				<Sidebar 
-				handleRadio={(e) => this.setState({ category: e.target.value })}
+				handleRadio={(e) =>
+					this.setState({ type: e.target.value })}
 
 				handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
 

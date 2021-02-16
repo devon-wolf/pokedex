@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import RadioButton from '../Common/RadioButton.js'
-import { getRadioOptions } from '../utils/sort-utils.js'
+import style from '../stylesheets/Sidebar.module.css'
+import { capitalize } from '../utils/design-utils.js'
+// import { getRadioOptions } from '../utils/sort-utils.js'
+
+// type-only for now
 
 export default class RadioButtonGroup extends Component {
 	render() {
-		const radioOptions = getRadioOptions(this.props.data, this.props.key)
-		console.log(radioOptions);
+		const radioOptions = ['bug', 'fire', 'grass', 'normal', 'water', 'psychic', 'poison', 'electric', 'fairy', 'rock', 'ground', 'fighting', 'all'];
+		
 		return (
-			<div>
-				{radioOptions.map(option =>
-					<RadioButton onChange={this.props.handleRadio} name={this.props.category} value={option} label={option} />) }
-			</div>
+			<label className={style.radioHeader}>Search within type:
+				<div className={style.radioSet}>
+					{radioOptions.map(option => {
+						return <RadioButton 
+						handleRadio={this.props.handleRadio} 
+						name="type"
+						value={option}
+						label={capitalize(option)}
+						key={option}
+						/>
+					}
+				)}
+				</div>
+			</label>
 		)
 	}
 }

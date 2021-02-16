@@ -13,7 +13,9 @@ export default class Sidebar extends Component {
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder='Search pokedex' />
 
-				<label className={style.radioHeader}>Search within type:</label>
+				<RadioButtonGroup handleRadio={this.props.handleRadio}/>
+
+				{/* <label className={style.radioHeader}>Search within type:</label>
 				<div className={style.radioSet}>
 					<RadioButton handleRadio={this.props.handleRadio} name="type" value="bug" label="Bug" />
 					<RadioButton handleRadio={this.props.handleRadio} name="type" value="fire" label="Fire" />
@@ -28,7 +30,7 @@ export default class Sidebar extends Component {
 					<RadioButton handleRadio={this.props.handleRadio} name="type" value="ground" label="Ground" />
 					<RadioButton handleRadio={this.props.handleRadio} name="type" value="fighting" label="Fighting" />
 					<RadioButton handleRadio={this.props.handleRadio} name="type" value="all" label="All" />
-				</div>
+				</div> */}
 				
 				<hr />
 				
@@ -43,5 +45,3 @@ export default class Sidebar extends Component {
 		)
 	}
 }
-
-/*  */
