@@ -13,6 +13,7 @@ export default class RadioButtonGroup extends Component {
 		return (
 			<label className={style.radioHeader}>Search within type:
 				<div className={style.radioSet}>
+					<RadioButton handleRadio={this.props.handleRadio} name={this.props.sortKey} value="all" label="All" key="all" radio={this.props.radio}/>
 					{this.props.radioOptions.map(option => {
 						return <RadioButton 
 						handleRadio={this.props.handleRadio} 

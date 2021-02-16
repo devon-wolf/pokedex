@@ -42,7 +42,7 @@ export default class SearchPage extends Component {
 
 		const types = typeData.body.map(object => object.type)
 		console.log(types);
-		this.setState({ types: types});
+		this.setState({ types: types });
 	}
 
 	// getRadioOptions = async(key) => {
@@ -63,8 +63,8 @@ export default class SearchPage extends Component {
 	render() {
 		const radioFilter = 
 			this.state.pokemon.filter(item => {
-			if (!this.state.type || this.state.type === 'all') return true;
-			return item['type_1'] === this.state.type;
+			if (!this.state.radio || this.state.radio === 'all') return true;
+			return item['type_1'] === this.state.radio;
 		});
 
 		const filteredList =
@@ -82,7 +82,7 @@ export default class SearchPage extends Component {
 				radio={this.state.radio}
 
 				handleRadio={(e) =>
-					this.setState({ type: e.target.value })}
+					this.setState({ radio: e.target.value })}
 
 				handleDropdown={(e) => this.setState({ sortCriteria: e.target.value })}
 
