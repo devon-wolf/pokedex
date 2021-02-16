@@ -15,3 +15,11 @@ export function sortObjectsDescending(objectArray, property) {
 	});
 	return objectArray;
 }
+
+export function getRadioOptions(objectArray, key) {
+	let radioOptions = [];
+	for (let obj in objectArray) {
+		radioOptions.push(obj[key]);
+	}
+	return radioOptions;
+}

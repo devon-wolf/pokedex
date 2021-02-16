@@ -4,24 +4,16 @@ import Dropdown from '../Common/Dropdown.js'
 import Button from '../Common/Button.js'
 import SearchBar from './SearchBar.js'
 import RadioButton from '../Common/RadioButton.js'
+import RadioButtonGroup from './RadioButtonGroup.js'
 
 export default class Sidebar extends Component {
 	render() {
 		return (
 			<aside className={style.aside}>
 
-				<SearchBar handleInput={this.props.searchFunction} />
+				<SearchBar handleInput={this.props.handleSearch} placeholder='Search pokedex' />
 
-				<label className={style.radioHeader}>Search within type:</label>
-				<div className={style.radioSet}>
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="bug" label="Bug" />
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="fire" label="Fire" />
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="grass" label="Grass" />
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="normal" label="Normal" />
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="water" label="Water" />
-					<RadioButton handleRadio={this.props.handleRadio} name="category" value="all" label="All" />
-
-				</div>
+				<RadioButtonGroup handleRadio={this.props.handleRadio}/>
 				
 				<hr />
 				
