@@ -8,15 +8,44 @@
 
 .main h1 {
 	margin: 0;
+	text-align: center;
 }
 
 .textSection {
-	border: solid 4px aquamarine;
+	border-top: solid 4px olivedrab;
+	border-left: solid 4px olivedrab;
+	border-bottom: solid 4px olivedrab;
 	padding: 1rem;
 }
 
+.textSection table {
+	font-family: monospace;
+	font-size: 1.25rem;
+	border: solid 4px royalblue;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding: .5rem;
+	width: 100%;
+}
+
+.textSection table th {
+	background-color: rebeccapurple;
+	color: white;
+	padding: .25rem;
+}
+
+.textSection table td {
+	border-bottom: solid 1px orangered;
+}
+
+.property {
+	font-style: italic;
+}
+
 .imageSection {
-	border: solid 4px rebeccapurple;
+	border-top: solid 4px rebeccapurple;
+	border-right: solid 4px rebeccapurple;
+	border-bottom: solid 4px rebeccapurple;
 	padding: 1rem;
 }
 

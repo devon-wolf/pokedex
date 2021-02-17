@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import style from '../stylesheets/DetailPage.module.css'
 
 export default class StatsTable extends Component {
 	render() {
@@ -11,7 +12,7 @@ export default class StatsTable extends Component {
 				</thead>
 				<tbody>
 					<tr>
-						<td>
+						<td className={style.property}>
 							Type:
 						</td>
 						<td>
@@ -20,7 +21,7 @@ export default class StatsTable extends Component {
 					</tr>
 					
 					<tr>
-						<td>
+						<td className={style.property}>
 							HP:
 						</td>
 						<td>
@@ -29,7 +30,7 @@ export default class StatsTable extends Component {
 					</tr>
 
 					<tr>
-						<td>
+						<td className={style.property}>
 							Attack:
 						</td>
 						<td>
@@ -38,8 +39,8 @@ export default class StatsTable extends Component {
 					</tr>
 
 					<tr>
-						<td>
-							Defense
+						<td className={style.property}>
+							Defense:
 						</td>
 						<td>
 							{this.props.pokeDefense}
@@ -47,7 +48,7 @@ export default class StatsTable extends Component {
 					</tr>
 
 					<tr>
-						<td>
+						<td className={style.property}>
 							Weight:
 						</td>
 						<td>
@@ -56,7 +57,7 @@ export default class StatsTable extends Component {
 					</tr>
 
 					<tr>
-						<td>
+						<td className={style.property}>
 							Height:
 						</td>
 						<td>
