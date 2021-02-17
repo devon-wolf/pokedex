@@ -11,7 +11,7 @@ export default class APISidebar extends Component {
 			<aside className={style.aside}>
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder="Search pokedex" />
-				<Button handleClick={this.props.handleSearch} buttonText="Click to search"/>
+				<Button handleClick={this.props.handleSearchClick} buttonText="Click to search"/>
 				
 				<hr />
 				
