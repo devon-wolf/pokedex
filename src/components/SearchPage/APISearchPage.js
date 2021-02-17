@@ -41,14 +41,14 @@ export default class APISearchPage extends Component {
 				
 				<APISidebar
 					handleSearch={e => this.setState({ searchQuery: e.target.value })}
-					handleSearchClick={e => this.loadPokemon()}
-
 					handleDropdown={e => this.setState({ sortCriteria: e.target.value })}
-
 					handleSortRadio={e => this.setState({ sortDirection: e.target.value })}
-					
 					handlePerPage={e => this.setState({ perPage: e.target.value })}
-
+					
+					handleSearchClick={e => this.loadPokemon()}
+					handlePrevClick={e => console.log('back click')}
+					handleNextClick={e => console.log('forward click')}
+					
 					radio={this.state.sortDirection}
 					
 				/>
