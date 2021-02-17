@@ -13,6 +13,8 @@ export default class APISearchPage extends Component {
 		searchQuery: '',
 		sortDirection: '',
 		sortCriteria: '',
+		page: '1',
+		perPage: '20'
 	}
 
 	componentDidMount = async () => {
@@ -25,7 +27,7 @@ export default class APISearchPage extends Component {
 			pokemon: [], 
 		});
 
-		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&sort=${this.state.sortCriteria}&direction=${this.state.sortDirection}`);
+		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&sort=${this.state.sortCriteria}&direction=${this.state.sortDirection}&page=${this.state.page}&perPage=${this.state.perPage}`);
 
 		this.setState({
 			loading: false,
