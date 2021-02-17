@@ -32,9 +32,10 @@ export default class DetailPage extends Component {
 	render() {
 		return (
 			<main className={style.main}>
-				{this.state.loading && <Spinner />}
-				<PokeDetails
-					pokeName={this.state.pokemon.pokemon}
+				{this.state.loading 
+				? <Spinner />
+				:	<PokeDetails
+					pokeName={capitalize(this.state.pokemon.pokemon)}
 					src={this.state.pokemon.url_image}
 					pokeType={this.state.pokemon.type_1}
 					pokeHP={this.state.pokemon.hp}
@@ -42,7 +43,7 @@ export default class DetailPage extends Component {
 					pokeDefense={this.state.pokemon.defense}
 					pokeWeight={this.state.pokemon.weight}
 					pokeHeight={this.state.pokemon.height}	
-				/>
+				/>}
 			</main>
 		)
 	}
