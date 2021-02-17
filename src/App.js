@@ -30,7 +30,7 @@ function App() {
               render={(routerProps) => <APISearchPage {...routerProps} />}
           />
           <Route 
-              path="/api-search/:id"
+              path="/api-search/:pokemon"
               exact
               render={(routerProps) => <DetailPage {...routerProps} />}
           />
