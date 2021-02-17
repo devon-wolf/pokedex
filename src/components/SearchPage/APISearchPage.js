@@ -23,7 +23,7 @@ export default class APISearchPage extends Component {
 			pokemon: [], 
 		});
 
-		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex${this.state.searchQuery}`);
+		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
 
 		this.setState({
 			loading: false,
@@ -37,12 +37,12 @@ export default class APISearchPage extends Component {
 				
 				<APISidebar
 					handleSearch={e => this.setState({ searchQuery: e.target.value })}
-					handleSearchClick={e => console.log('search click')}
+					handleSearchClick={e => this.loadPokemon()}
 
 					handleDropdown={e => console.log('dropdown change')}
 
 					sortUpFunction={e => console.log('sort up click')}
-					sortDownFunction={e => console.log('sort down function')}
+					sortDownFunction={e => console.log('sort down click')}
 				/>
 
 				<main className={style.main}>
