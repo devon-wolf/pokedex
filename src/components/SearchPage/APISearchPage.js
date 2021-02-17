@@ -34,7 +34,7 @@ export default class APISearchPage extends Component {
 	}
 
 	render() {
-		// console.log(this.state)
+	 	// console.log(this.state)
 		return (
 			<div className={style.searchPage}>
 				
@@ -44,8 +44,9 @@ export default class APISearchPage extends Component {
 
 					handleDropdown={e => this.setState({ sortCriteria: e.target.value })}
 
-					sortUpFunction={e => this.setState({ sortDirection: 'asc' })}
-					sortDownFunction={e => this.setState({ sortDirection: 'desc' })}
+					handleSortRadio={e => this.setState({ sortDirection: e.target.value })}
+				
+					radio={this.state.sortDirection}
 				/>
 
 				<main className={style.main}>
