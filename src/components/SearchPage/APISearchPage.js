@@ -25,7 +25,7 @@ export default class APISearchPage extends Component {
 			pokemon: [], 
 		});
 
-		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
+		const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&sort=${this.state.sortCriteria}&direction=${this.state.sortDirection}`);
 
 		this.setState({
 			loading: false,
@@ -34,7 +34,7 @@ export default class APISearchPage extends Component {
 	}
 
 	render() {
-		console.log(this.state)
+		// console.log(this.state)
 		return (
 			<div className={style.searchPage}>
 				
