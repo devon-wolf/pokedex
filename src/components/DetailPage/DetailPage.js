@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import request from 'superagent'
 import Spinner from '../Common/Spinner.js'
-// import { capitalize } from '../utils/design-utils.js'
+import style from '../stylesheets/DetailPage.module.css'
+import PokeDetails from './PokeDetails.js'
+import { capitalize } from '../utils/design-utils.js'
 
 export default class DetailPage extends Component {
 	state = {
@@ -29,13 +31,18 @@ export default class DetailPage extends Component {
 
 	render() {
 		return (
-			<main>
-				<h1>This is the detail page.</h1>
+			<main className={style.main}>
 				{this.state.loading && <Spinner />}
-				<p>{this.state.pokemon.pokemon}</p>
-				<p>{this.state.pokemon.type_1}</p>
-				
-				<img alt={this.state.pokemon.pokemon} src={this.state.pokemon.url_image}/>
+				<PokeDetails
+					pokeName={this.state.pokemon.pokemon}
+					src={this.state.pokemon.url_image}
+					pokeType={this.state.pokemon.type_1}
+					pokeHP={this.state.pokemon.hp}
+					pokeAttack={this.state.pokemon.attack}
+					pokeDefense={this.state.pokemon.defense}
+					pokeWeight={this.state.pokemon.weight}
+					pokeHeight={this.state.pokemon.height}	
+				/>
 			</main>
 		)
 	}
