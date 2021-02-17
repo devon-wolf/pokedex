@@ -40,6 +40,11 @@ export default class APISearchPage extends Component {
 		this.loadPokemon();
 	}
 
+	loadPrevPage = async () => {
+		await this.setState({ page: this.state.page - 1 });
+		this.loadPokemon();
+	}
+
 	render() {
 		console.log(this.state.page);
 		return (
@@ -52,7 +57,7 @@ export default class APISearchPage extends Component {
 					handlePerPage={e => this.setState({ perPage: e.target.value })}
 					
 					handleSearchClick={e => this.loadPokemon()}
-					handlePrevClick={e => console.log('back click')}
+					handlePrevClick={e => this.loadPrevPage()}
 					handleNextClick={e => this.loadNextPage()}
 					
 					radio={this.state.sortDirection}
