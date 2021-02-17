@@ -11,6 +11,8 @@ export default class APISearchPage extends Component {
 		loading: false,
 		pokemon: [],
 		searchQuery: '',
+		sortDirection: '',
+		sortCriteria: '',
 	}
 
 	componentDidMount = async () => {
@@ -32,6 +34,7 @@ export default class APISearchPage extends Component {
 	}
 
 	render() {
+		console.log(this.state)
 		return (
 			<div className={style.searchPage}>
 				
@@ -39,10 +42,10 @@ export default class APISearchPage extends Component {
 					handleSearch={e => this.setState({ searchQuery: e.target.value })}
 					handleSearchClick={e => this.loadPokemon()}
 
-					handleDropdown={e => console.log('dropdown change')}
+					handleDropdown={e => this.setState({ sortCriteria: e.target.value })}
 
-					sortUpFunction={e => console.log('sort up click')}
-					sortDownFunction={e => console.log('sort down click')}
+					sortUpFunction={e => this.setState({ sortDirection: 'asc' })}
+					sortDownFunction={e => this.setState({ sortDirection: 'desc' })}
 				/>
 
 				<main className={style.main}>
