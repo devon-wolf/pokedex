@@ -37,7 +37,7 @@ export default class DetailPage extends Component {
 				:	<PokeDetails
 					pokeName={capitalize(this.state.pokemon.pokemon)}
 					src={this.state.pokemon.url_image}
-					pokeType={this.state.pokemon.type_1}
+					pokeType={capitalize(this.state.pokemon.type_1)}
 					pokeHP={this.state.pokemon.hp}
 					pokeAttack={this.state.pokemon.attack}
 					pokeDefense={this.state.pokemon.defense}

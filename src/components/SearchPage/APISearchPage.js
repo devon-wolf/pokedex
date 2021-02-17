@@ -34,7 +34,6 @@ export default class APISearchPage extends Component {
 	}
 
 	render() {
-	 	// console.log(this.state)
 		return (
 			<div className={style.searchPage}>
 				
@@ -50,8 +49,9 @@ export default class APISearchPage extends Component {
 				/>
 
 				<main className={style.main}>
-					{this.state.loading && <Spinner />}
-					<PokeList data={this.state.pokemon}/>
+					{this.state.loading
+					? <Spinner />
+					: <PokeList data={this.state.pokemon}/>}
 				</main>
 			</div>
 		)
