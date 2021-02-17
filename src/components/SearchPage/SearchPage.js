@@ -47,6 +47,18 @@ export default class SearchPage extends Component {
 		});
 	}
 
+	searchByName = async () => {
+		if (!this.state.searchQuery) return;
+		this.setState({ loading: true });
+
+		const searchData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
+
+		this.setState({
+			loading: false,
+			pokemon: searchData.body.results
+		})
+	}
+
 	sortAndUpdate = (sortFunction) => {
 		const sortedList = sortFunction(this.state.pokemon, this.state.sortCriteria);
 
@@ -64,7 +76,7 @@ export default class SearchPage extends Component {
 			radioFilter.filter(item => {
 			return item['pokemon'].includes(this.state.searchQuery) || item['type_1'].includes(this.state.searchQuery);
 		});
-
+		
 		return (
 			<div className={style.searchPage}>
 				<Sidebar
