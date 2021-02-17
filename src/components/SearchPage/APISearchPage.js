@@ -13,7 +13,7 @@ export default class APISearchPage extends Component {
 		searchQuery: '',
 		sortDirection: '',
 		sortCriteria: '',
-		page: '1',
+		page: 1,
 		perPage: '20'
 	}
 
@@ -35,7 +35,13 @@ export default class APISearchPage extends Component {
 		})
 	}
 
+	loadNextPage = async () => {
+		await this.setState({ page: this.state.page + 1 });
+		this.loadPokemon();
+	}
+
 	render() {
+		console.log(this.state.page);
 		return (
 			<div className={style.searchPage}>
 				
@@ -47,7 +53,7 @@ export default class APISearchPage extends Component {
 					
 					handleSearchClick={e => this.loadPokemon()}
 					handlePrevClick={e => console.log('back click')}
-					handleNextClick={e => console.log('forward click')}
+					handleNextClick={e => this.loadNextPage()}
 					
 					radio={this.state.sortDirection}
 					
