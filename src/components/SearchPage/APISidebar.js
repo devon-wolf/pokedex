@@ -39,6 +39,16 @@ export default class APISidebar extends Component {
 				<hr />
 
 				<Button handleClick={this.props.handleSearchClick} buttonText="Click to search"/>
+
+				<hr />
+
+				<label>Results per page:
+					<select onChange={this.props.handlePerPage}>
+						<option value="20">20</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+				</label>
 				
 			</aside>
 		)

@@ -46,8 +46,11 @@ export default class APISearchPage extends Component {
 					handleDropdown={e => this.setState({ sortCriteria: e.target.value })}
 
 					handleSortRadio={e => this.setState({ sortDirection: e.target.value })}
-				
+					
+					handlePerPage={e => this.setState({ perPage: e.target.value })}
+
 					radio={this.state.sortDirection}
+					
 				/>
 
 				<main className={style.main}>
