@@ -3,20 +3,15 @@ import style from '../stylesheets/Sidebar.module.css'
 import Dropdown from '../Common/Dropdown.js'
 import Button from '../Common/Button.js'
 import SearchBar from './SearchBar.js'
-import RadioButtonGroup from './RadioButtonGroup.js'
+// import RadioButtonGroup from './RadioButtonGroup.js'
 
-export default class Sidebar extends Component {
+export default class APISidebar extends Component {
 	render() {
 		return (
 			<aside className={style.aside}>
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder="Search pokedex" />
-
-				<RadioButtonGroup 
-				radioOptions={this.props.radioOptions}
-				sortKey="type"
-				handleRadio={this.props.handleRadio}
-				radio={this.props.radio}/>
+				<Button handleClick={this.props.handleSearch} buttonText="Click to search"/>
 				
 				<hr />
 				

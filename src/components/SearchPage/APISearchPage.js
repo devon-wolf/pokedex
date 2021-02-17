@@ -7,6 +7,30 @@ import Spinner from '../Common/Spinner.js'
 
 
 export default class APISearchPage extends Component {
+	state = {
+		loading: false,
+		pokemon: [],
+		searchQuery: '',
+	}
+
+	componentDidMount = async () => {
+		await this.loadPokemon();
+	}
+
+	loadPokemon = async () => {
+		this.setState({ 
+			loading: true, 
+			pokemon: [], 
+		});
+
+		const pokeData = await request.get('https://pokedex-alchemy.herokuapp.com/api/pokedex');
+
+		this.setState({
+			loading: false,
+			pokemon: pokeData.body.results,
+		})
+	}
+
 	render() {
 		return (
 			<div className={style.searchPage}>
