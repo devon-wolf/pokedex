@@ -12,14 +12,12 @@ export default class APISidebar extends Component {
 			<aside className={style.aside}>
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder="Search pokedex" />
-				<Button handleClick={this.props.handleSearchClick} buttonText="Click to search"/>
-				
-				<hr />
 				
 				<Dropdown
 					label="Sort by:"
 					handleDropdown={this.props.handleDropdown}/>
-				<label className={style.radioHeader}>Sort direction:
+				
+				<label>Sort direction:
 					<div className={style.radioSet}>
 						<RadioButton 
 							handleRadio={this.props.handleSortRadio}
@@ -37,6 +35,10 @@ export default class APISidebar extends Component {
 						/>
 					</div>
 				</label>
+
+				<hr />
+
+				<Button handleClick={this.props.handleSearchClick} buttonText="Click to search"/>
 				
 			</aside>
 		)
