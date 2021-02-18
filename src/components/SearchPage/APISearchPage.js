@@ -10,11 +10,12 @@ export default class APISearchPage extends Component {
 	state = {
 		loading: false,
 		pokemon: [],
+		totalPokemon: 0,
 		searchQuery: '',
 		sortDirection: '',
 		sortCriteria: '',
 		page: 1,
-		perPage: '20'
+		perPage: 20
 	}
 
 	componentDidMount = async () => {
@@ -32,21 +33,23 @@ export default class APISearchPage extends Component {
 		this.setState({
 			loading: false,
 			pokemon: pokeData.body.results,
+			totalPokemon: pokeData.body.count
 		})
 	}
 
 	loadNextPage = async () => {
 		await this.setState({ page: this.state.page + 1 });
-		this.loadPokemon();
+		await this.loadPokemon();
 	}
 
 	loadPrevPage = async () => {
 		await this.setState({ page: this.state.page - 1 });
-		this.loadPokemon();
+		await this.loadPokemon();
 	}
 
 	render() {
-		console.log(this.state.page);
+		const lastPage = Math.ceil(this.state.totalPokemon / this.state.perPage);
+
 		return (
 			<div className={style.searchPage}>
 				
@@ -54,7 +57,7 @@ export default class APISearchPage extends Component {
 					handleSearch={e => this.setState({ searchQuery: e.target.value })}
 					handleDropdown={e => this.setState({ sortCriteria: e.target.value })}
 					handleSortRadio={e => this.setState({ sortDirection: e.target.value })}
-					handlePerPage={e => this.setState({ perPage: e.target.value })}
+					handlePerPage={e => this.setState({ perPage: Number(e.target.value) })}
 					
 					handleSearchClick={e => this.loadPokemon()}
 					handlePrevClick={e => this.loadPrevPage()}
@@ -62,6 +65,7 @@ export default class APISearchPage extends Component {
 					
 					radio={this.state.sortDirection}
 					disabledPrev={this.state.page === 1}
+					disabledNext={this.state.page === lastPage}
 				
 				/>
 
