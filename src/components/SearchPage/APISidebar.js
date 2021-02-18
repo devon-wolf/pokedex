@@ -10,6 +10,7 @@ export default class APISidebar extends Component {
 		
 		return (
 			<aside className={style.aside}>
+				
 
 				<SearchBar handleInput={this.props.handleSearch} placeholder="Search pokedex" />
 				
@@ -39,7 +40,20 @@ export default class APISidebar extends Component {
 				<hr />
 
 				<Button handleClick={this.props.handleSearchClick} buttonText="Click to search"/>
-				
+
+				<hr />
+
+				<label>Results per page:
+					<select onChange={this.props.handlePerPage}>
+						<option value="20">20</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+				</label>
+
+				<Button disabled={this.props.disabledPrev} handleClick={this.props.handlePrevClick} buttonText="<=="/>
+				<Button disabled={this.props.disabledNext} handleClick={this.props.handleNextClick} buttonText="==>"/>
+
 			</aside>
 		)
 	}

@@ -7,6 +7,7 @@ export default class Dropdown extends Component {
 			<label>
 				<p>{this.props.label}</p>
 				<select onChange={this.props.handleDropdown}>
+					<DropdownItem text="--" value="" />
 					<DropdownItem text="Name" value="pokemon" />
 					<DropdownItem text="Type" value="type_1"/>
 					<DropdownItem text="Weight" value="weight"/>

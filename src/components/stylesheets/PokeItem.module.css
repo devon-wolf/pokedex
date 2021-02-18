@@ -1,11 +1,5 @@
 .pokeEntry {
-	background: skyblue;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: solid 4px teal;
-	box-shadow: #350918 .4rem .4rem;
+	
 }
 
 .pokeEntry h3 {
@@ -16,7 +10,20 @@
 	width: 100%;
 }
 
+.pokeEntry a {
+	background: skyblue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: solid 4px teal;
+	box-shadow: #350918 .4rem .4rem;
+}
 
+.pokeEntry a:link, .pokeEntry a:visited {
+	color: inherit;
+	text-decoration: none;
+}
 
 .pokeEntry p {
 
