@@ -50,7 +50,7 @@ export default class APISidebar extends Component {
 					</select>
 				</label>
 
-				<Button handleClick={this.props.handlePrevClick} buttonText="<=="/>
+				<Button disabled={this.props.disabledPrev} handleClick={this.props.handlePrevClick} buttonText="<=="/>
 				<Button handleClick={this.props.handleNextClick} buttonText="==>"/>
 				
 			</aside>

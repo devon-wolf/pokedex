@@ -61,7 +61,8 @@ export default class APISearchPage extends Component {
 					handleNextClick={e => this.loadNextPage()}
 					
 					radio={this.state.sortDirection}
-					
+					disabledPrev={this.state.page === 1}
+				
 				/>
 
 				<main className={style.main}>
